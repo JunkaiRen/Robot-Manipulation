@@ -6,11 +6,9 @@
 
 环境空间：是一个三维的欧几里得空间，在该空间内定义了所有物理对象的几何信息，这些物理对象的集合被成为障碍物空间。
 
-
-
 一、OMPL
 
-开源运动规划库（Open Motion Planning Library, OMPL）是由Rice大学的Kavraki实验室开发的专用于基于采样运动规划的一个C++语言开源库。OMPL不仅包含了许多主流的采样规划算法，如PRM，RRT，KPIECE（Kinodynamic Planning by Interior-Exterior Cell Exploration）等，而且以一种期望用户以最小输入即可解决各种复杂运动规划问题的方式进行设计。OMPL将运动规划问题从机器人学和人工智能领域的研究中进行抽象后，认为该问题可以单纯地看作是在连续空间内的搜索问题。
+开源运动规划库（Open Motion Planning Library, OMPL[^1]）是由Rice大学的Kavraki实验室开发的专用于基于采样运动规划的一个C++语言开源库。OMPL不仅包含了许多主流的采样规划算法，如PRM，RRT，KPIECE（Kinodynamic Planning by Interior-Exterior Cell Exploration）等，而且以一种期望用户以最小输入即可解决各种复杂运动规划问题的方式进行设计。OMPL将运动规划问题从机器人学和人工智能领域的研究中进行抽象后，认为该问题可以单纯地看作是在连续空间内的搜索问题。
 
 基于采样运动规划：基本思想是使用图结构近似搜索空间的连续性，然后对搜索空间进行采样病并择样本点作为近似图的顶点，近似图内各顶点之间的连线表示有效路径。
 
@@ -30,9 +28,11 @@ OMPL对目前主流的采样算法进行研究后提出了五个有关运动规�
 
 二、基于MoveIt的机械臂运动规划
 
-
-
+1. MoveIt！简介
+2. 
 ---
 
 OMPL：[http://ompl.kavrakilab.org/OMPL\_Primer.pdf](http://ompl.kavrakilab.org/OMPL_Primer.pdf)
+
+[^1]: Sucan, Ioan A., Mark Moll, and Lydia E. Kavraki. "The open motion planning library." IEEE Robotics & Automation Magazine 19.4 \(2012\): 72-82.
 
