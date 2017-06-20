@@ -2,7 +2,7 @@
 
 MoveIt！为多自由度机械臂的运动规划提供了一个统一架构，可实现在关节空间和笛卡尔空间的运动规划任务。MoveIt！调用已集成多种采样算法的运动规划库OMPL来实现两种规划空间的运动规划任务。
 
-**在笛卡尔空间的运动规划**时，由于已知信息为机械臂末端或工具坐标系的位姿，因此，在规划过程中**需要使用逆运动学实现从笛卡尔空间到关节空间的转换。MoveIt！默认使用一个通用的第三方运动学与动力学库（Kinematics and Dynamics Library，KDL）对机械臂进行逆运动学求解**。此外，用户也可以实现自己的逆运动学求解程序，并以插件形式将其应用于MoveIt！，如本文实现的UR5安装夹持器后的逆运动学插件，UR5-IK。
+**在笛卡尔空间的运动规划**时，由于已知信息为机械臂末端或工具坐标系的位姿，因此，在规划过程中**需要使用逆运动学实现从笛卡尔空间到关节空间的转换。MoveIt！默认使用一个通用的第三方运动学与动力学库（Kinematics and Dynamics Library，KDL**[^1]**）对机械臂进行逆运动学求解**。此外，用户也可以实现自己的逆运动学求解程序，并以插件形式将其应用于MoveIt！，如本文实现的UR5安装夹持器后的逆运动学插件，UR5-IK。
 
 由于OMPL具有多种基于采样的运动规划算法，且MoveIt！可调用不同的逆运动学插件，因此，需要对这些算法和插件的性能进行比较分析，从中选择性能较优者。
 
@@ -50,6 +50,7 @@ MoveIt！为多自由度机械臂的运动规划提供了一个统一架构，�
 参考文献：
 
 1. 徐保来. 基于ROS的移动操作臂自主导航与抓取实现\[D\]. 广东工业大学, 2016.
+2. Bruyninckx, H. and Soetens D, P. Open Robot Control Software.  http://www.orocos.org/kdl.2002.
 
-
+[^1]: Bruyninckx, H., 2001. Open robot control software: the OROCOS project. In Robotics and Automation, 2001. Proceedings 2001 ICRA. IEEE International Conference on \(Vol. 3, pp. 2523-2528\). IEEE.
 
