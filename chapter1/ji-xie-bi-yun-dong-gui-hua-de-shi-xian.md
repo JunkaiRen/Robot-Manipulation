@@ -1,19 +1,44 @@
-机械臂运动规划实现
+### 机械臂运动规划实现
 
-1. 创建MoveIt！功能包
-   为使移动机械臂系统能够使用MoveIt！提供的操作功能，必须为其主节点提供相应的输入即配置文件。为了提高MoveIt！的使用便利性，开发人员为用户提供了一个图形用户界面——MoveIt！配置助手（MoveIt！ Setup Assistant），该助手的主要功能是根据机器人的URDF（Unified Robots Description Format）模型文件创建SRDF（Semantic RObot Description Format）文件。SRDF文件用于在语义层面上表达各种应用需求下的机器人信息，而这些信息是URDF文件无法表述的，如机器人几种特定姿态的关节角信息、运动链等。因此，在使用MoveIt！配置助手之前，需要为本文的移动机械臂创建一个URDF模型文件。
-2. 创建URDF模型文件  
-   URDF模型文件是描述机器人、传感器和室内环境等模型的XML表述文件。每一个XML表述语句都对应一个基于单一语言或多语言的语法解析器。URDF文件主要由Link标签和Joint标签两部分构成。如图1所示，Joint标签用于表述机器人的关节类型、运动学和动力学特性、连杆间的坐标转换关系等。Link标签用于表述连杆自身的运动学和动力学特性。由Joint标签和Link标签可构成各种形式的运动链，父连杆和子连杆的关系由Joint标签确定，如图1中的Link1作为两个子连杆Link2和Link3的父连杆。通过配置Joint标签和Link标签可构成不同形式的串联型树状结构。  
-   ![](/assets/Screenshot from 2017-06-20 17:50:18.png) ![](/assets/Screenshot from 2017-06-20 17:50:39.png)  
-   图 1. URDF树状结构
+#### 1. 创建MoveIt！功能包
 
-   UR5就是由6个关节和7个连杆构成的串联型树状结构。Joint标签主要有6种子标签用以配置父连杆与子连杆之间的关节类型、相应位姿等属性；Link标签主要由惯性、可视化和碰撞三个子标签构成，用以表述各连杆的惯性属性、可视化属性及碰撞属性。如图2所示：![](/assets/Screenshot from 2017-06-20 17:55:23.png)图 2. Joint标签和Link标签组成示意图
+为使移动机械臂系统能够使用MoveIt！提供的操作功能，必须为其主节点提供相应的输入即配置文件。为了提高MoveIt！的使用便利性，开发人员为用户提供了一个图形用户界面——MoveIt！配置助手（MoveIt！ Setup Assistant），该助手的主要功能是根据机器人的URDF（Unified Robots Description Format）模型文件创建SRDF（Semantic RObot Description Format）文件。SRDF文件用于在语义层面上表达各种应用需求下的机器人信息，而这些信息是URDF文件无法表述的，如机器人几种特定姿态的关节角信息、运动链等。因此，在使用MoveIt！配置助手之前，需要为本文的移动机械臂创建一个URDF模型文件。
 
-   创建URDF文件，可以使用SolidWorks的ROS插件。SW2URDF可以将三维模型输出为URDF格式的文件，该文件可以直接在ROS中使用。
+#### 2. 创建URDF模型文件
 
-3. 配置MoveIt！
+* URDF模型文件是描述机器人、传感器和室内环境等模型的XML表述文件。每一个XML表述语句都对应一个基于单一语言或多语言的语法解析器。URDF文件主要由Link标签和Joint标签两部分构成。如图1所示，Joint标签用于表述机器人的关节类型、运动学和动力学特性、连杆间的坐标转换关系等。Link标签用于表述连杆自身的运动学和动力学特性。由Joint标签和Link标签可构成各种形式的运动链，父连杆和子连杆的关系由Joint标签确定，如图1中的Link1作为两个子连杆Link2和Link3的父连杆。通过配置Joint标签和Link标签可构成不同形式的串联型树状结构。 ![](/assets/Screenshot from 2017-06-20 17:50:18.png) ![](/assets/Screenshot from 2017-06-20 17:50:39.png) 图 1. URDF树状结构
 
-4. 运动规划仿真实验
+* UR5就是由6个关节和7个连杆构成的串联型树状结构。Joint标签主要有6种子标签用以配置父连杆与子连杆之间的关节类型、相应位姿等属性；Link标签主要由惯性、可视化和碰撞三个子标签构成，用以表述各连杆的惯性属性、可视化属性及碰撞属性。如图2所示：![](/assets/Screenshot from 2017-06-20 17:55:23.png)图 2. Joint标签和Link标签组成示意图
+
+* 创建URDF文件，可以使用SolidWorks的ROS插件。SW2URDF可以将三维模型输出为URDF格式的文件，该文件可以直接在ROS中使用。
+
+#### 3. 配置MoveIt！
+
+MoveIt！的配置工作可以通过配置助手完成，整个配置过程可以分为6个步骤：
+
+1. **创建MoveIt！功能包，并加载已经创建好的移动机械臂的URDF模型**；
+
+2. **生成自碰撞矩阵**。MoveIt！调用$$FCL^{1}$$（Flexible Collision Library）对机器人本体的任意两连杆进行采样检测以确定他们的碰撞属性，减少运动规划的运算时间。碰撞属性分为从不碰撞、可能碰撞和已碰撞三类。高密度的采样能够较准确地检测连杆之间的碰撞属性，但会导致更多的计算耗时；低采样密度可节约计算资源但可能导致碰撞属性的错误检测。因此，需要根据机器人模型的连杆数进行合理的权衡。
+
+3. **添加虚拟关节**。虚拟关节用于表述机器人与世界坐标系的关系。例如本文的移动机械臂系统具有在平面环境内移动的能力，因此添加一个虚拟关节“virtual\_joint”并将其关节类型设为“planar”，该关节类型表示可以实现平面内三自由度运动。从而构建了一个虚拟的坐标系转换关系：“odom”—&gt;“virtual\_joint”—&gt;"base\_footprint"，实现自主移动机械臂进行自主操作任务所需的完整坐标系转换信息。
+
+4. **添加规划组及其运动学求解器**。规划组用于语义性地描述机器人的不同部分，如定义那些部分是手臂或末端执行器。为了进行机械臂的运动规划，本文创建了UR5arm和UR5\_gripper两个规划组，分别用于描述手臂和夹持器。
+
+5. **预定义机器人的姿态**。预定义姿态用于保存用户自定义的机器人特定姿态的关节信息，如Home姿态。
+
+6. **生成配置文件。**
+
+至此，MoveIt！的配置工作完成。在Ubuntu系统上运行上述配置好的文件后，即可在Rviz可视化工具中对机器人系统进行仿真控制。
+
+1. 运动规划仿真实验
+
+为体现运动
+
+---
+
+参考文献
+
+1. Pan, Jia, Sachin Chitta, and Dinesh Manocha. "FCL: A general purpose library for collision and proximity queries." Robotics and Automation \(ICRA\), 2012 IEEE International Conference on. IEEE, 2012.
 
 
 
