@@ -12,7 +12,7 @@ MoveIt！为多自由度机械臂的运动规划提供了一个统一架构，�
 
 图 1. 仿真实验场景
 
-算法性能分析主要针对成功次数、规划时间两项重要指标进行对比分析。机械臂的起始构型为$$c_{0}$$=\[ -0.7854，-1.5708，0.0，-1.5708, 0.0, 0.0 \], 目标姿态构型为$$c_{1}$$=\[-0.2515，-1.6263，1.4942，-1.4370，-1.5708,-1.8223 \]。上图中夹持器中心圆球所表示的目标位姿为$$p=\left [ 0.4722，-0.0086，0.3327，1.3435，1.569,1.9143 \right ]$$。选中的采样规划算法为SBL, KPIECE, RRT, RRTConnect, PRM, PRMstar。
+算法性能分析主要针对成功次数、规划时间两项重要指标进行对比分析。机械臂的起始构型为$$c_{0}$$$$c_{0}$$=\[ -0.7854，-1.5708，0.0，-1.5708, 0.0, 0.0 \], 目标姿态构型为$$c_{1}$$$$c_{1}$$=\[-0.2515，-1.6263，1.4942，-1.4370，-1.5708,-1.8223 \]。上图中夹持器中心圆球所表示的目标位姿为$$p=\left [ 0.4722，-0.0086，0.3327，1.3435，1.569,1.9143 \right ]$$$$p=\left [ 0.4722，-0.0086，0.3327，1.3435，1.569,1.9143 \right ]$$。选中的采样规划算法为SBL, KPIECE, RRT, RRTConnect, PRM, PRMstar。
 
 表1为在关节空间进行运动规划时获得的几种算法的实验数据。表2为KDL与各种采样规划算法配合使用时的实验数据。表3为本文推导的UR5逆运动学插件与各采样算法配合使用时得到的实验数据。
 
@@ -50,7 +50,7 @@ MoveIt！为多自由度机械臂的运动规划提供了一个统一架构，�
 参考文献：
 
 1. 徐保来. 基于ROS的移动操作臂自主导航与抓取实现\[D\]. 广东工业大学, 2016.
-2. Bruyninckx, H. and Soetens D, P. Open Robot Control Software.  http://www.orocos.org/kdl.2002.
+2. Bruyninckx, H. and Soetens D, P. Open Robot Control Software.  [http://www.orocos.org/kdl.2002](http://www.orocos.org/kdl.2002).
 
 [^1]: Bruyninckx, H., 2001. Open robot control software: the OROCOS project. In Robotics and Automation, 2001. Proceedings 2001 ICRA. IEEE International Conference on \(Vol. 3, pp. 2523-2528\). IEEE.
 
