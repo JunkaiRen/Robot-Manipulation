@@ -10,5 +10,5 @@
 * [Ideas](ideas.md)
   * [2017.6.21](ideas/2017621.md)
 * [papers](papers.md)
-  * [1谷歌大脑多机械臂深度增强学习抓取动作学习](papers/1.md)
+  * [谷歌大脑多机械臂深度增强学习抓取动作学习](papers/1.md)
 
