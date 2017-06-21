@@ -7,4 +7,6 @@
   * [UR5正逆运动学建模](chapter1/ur5zheng-ni-yun-dong-xue-jian-mo.md)
   * [MoveIt！运动规划性能分析](chapter1/moveitff01-yun-dong-gui-hua-xing-neng-fen-xi.md)
   * [机械臂运动规划的实现](chapter1/ji-xie-bi-yun-dong-gui-hua-de-shi-xian.md)
+* [Ideas](ideas.md)
+  * [2017.6.21](ideas/2017621.md)
 
