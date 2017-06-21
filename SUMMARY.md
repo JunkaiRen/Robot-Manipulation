@@ -9,4 +9,6 @@
   * [机械臂运动规划的实现](chapter1/ji-xie-bi-yun-dong-gui-hua-de-shi-xian.md)
 * [Ideas](ideas.md)
   * [2017.6.21](ideas/2017621.md)
+* [papers](papers.md)
+  * [谷歌大脑多机械臂深度增强学习抓取动作学习](papers/gu-ge-da-nao-duo-ji-xie-bi-shen-du-zeng-qiang-xue-xi-zhua-qu-dong-zuo-xue-xi.md)
 
