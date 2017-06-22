@@ -12,4 +12,5 @@
 * [papers](papers.md)
   * [谷歌大脑多机械臂深度增强学习抓取动作学习](papers/1.md)
   * [机械臂控制在3D打印上的应用](papers/ji-xie-bi-kong-zhi-zai-3d-da-yin-shang-de-ying-yong.md)
+  * [深度学习用于机器人抓取](papers/shen-du-xue-xi-yong-yu-ji-qi-ren-zhua-qu.md)
 
