@@ -8,5 +8,7 @@
 
 ![](/assets/1232.png)
 
+图1. 抓取示例：图中黑点代表手的位置。左：摩擦系数不为零时，形成force closure；右：caging
+
 
 
