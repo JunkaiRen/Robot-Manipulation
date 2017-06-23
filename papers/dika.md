@@ -132,7 +132,7 @@ CNN的训练使用SGD，和很多其他神经网络的训练一样，需要加�
 
 还有很多抓取问题，其解空间相对于动作空间是非常非常小的，比如感知系统误差较大的情况，比如从一堆摞在一起的物体中取出特定的一个。
 
-参考文献：
+### 参考文献：
 
 \[1\] From Caging to Grasping， Alberto Rodriguez, Matthew T. Mason and Steve Ferry
 
