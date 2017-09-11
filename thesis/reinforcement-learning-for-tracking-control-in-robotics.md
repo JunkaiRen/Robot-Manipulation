@@ -5,8 +5,9 @@
 
 ### 工作：
 
-* addresses the aforementioned problem from the point of view of model-free, learning controller which improves the tracking performance safely in an online fashion. 
+* addresses the aforementioned problem from the point of view of **model-free**, learning controller which improves the tracking performance safely in an **online fashion**. 
 * Improvement to the control performance is done by feeding an additive compensation signal given by a learned policy function to the robot’s nominal controller.
+* Two different compensation methods are proposed in the thesis. Both methods are realized by the so called **Actor Critic \(AC\)** algorithm in order to cope with the continuous state of a robot arm. The first method compensates the control input of the nominal controller while the second method modifies the reference trajectory
 
 
 
