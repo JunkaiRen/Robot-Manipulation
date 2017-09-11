@@ -11,7 +11,7 @@
 
 ### 思路：
 
-* Theidea is to first design a stabilizing nominal controller with non-optimal tracking performance.Afterwards, RL is used to learn an additive compensation for the control or reference signal such that the combination ensures a better tracking error. From this point forward, we will call this approach RL-based compensator.
+* The idea is to first design a stabilizing nominal controller with non-optimal tracking performance.Afterwards, RL is used to learn an additive compensation for the control or reference signal such that the combination ensures a better tracking error. From this point forward, we will call this approach RL-based compensator.
 
 
 
