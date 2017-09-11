@@ -14,4 +14,7 @@
   * [机械臂控制在3D打印上的应用](papers/ji-xie-bi-kong-zhi-zai-3d-da-yin-shang-de-ying-yong.md)
   * [深度学习用于机械臂抓取](papers/dika.md)
   * [Control of a robotic arm: Application to on-surface 3D-printing](papers/control-of-a-robotic-arm-application-to-on-surface-3d-printing.md)
+* [Thesis](thesis.md)
+  * [Reinforcement Learning for Tracking Control in Robotics](thesis/reinforcement-learning-for-tracking-control-in-robotics.md)
+  * [Control of a robotic arm: Application to on-surface 3D-printing](thesis/control-of-a-robotic-arm-application-to-on-surface-3d-printing.md)
 
